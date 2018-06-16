@@ -1,0 +1,2 @@
+cp ../command.sh .;
+./main.py | ./command.sh
