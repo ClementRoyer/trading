@@ -65,7 +65,7 @@ You can edit the file `command.sh` in root folder, `push_index/run` will use thi
   <a href="https://www.linkedin.com/in/cl%C3%A9ment-royer/">Clément ROYER</a>
 <br><br>
 
-[![0](https://img.shields.io/badge/Usage_Policy-black.svg?style=flat&logo=Markdown&logoColor=white&labelColor=black&color=black)][Policy]  [![0](https://img.shields.io/badge/ciemrnt-black.svg?style=flat&logo=Twitter&labelColor=black&color=black)][twitter] [![0](https://img.shields.io/badge/Clément_royer-black.svg?style=flat&logo=Linkedin&labelColor=black&color=black)][Linkedin] [![0](https://img.shields.io/badge/CV-black.svg?style=flat&logo=SingleStore&labelColor=black&color=black)][Linkedin] 
+[![0](https://img.shields.io/badge/Usage_Policy-black.svg?style=flat&logo=Markdown&logoColor=white&labelColor=black&color=black)][Policy]  [![0](https://img.shields.io/badge/ciemrnt-black.svg?style=flat&logo=Twitter&labelColor=black&color=black)][twitter] [![0](https://img.shields.io/badge/Clément_royer-black.svg?style=flat&logo=Linkedin&labelColor=black&color=black)][Linkedin] [![0](https://img.shields.io/badge/CV-black.svg?style=flat&logo=SingleStore&labelColor=black&color=black)][website] 
 </div>
 
 <!-- omit in toc -->
