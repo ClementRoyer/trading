@@ -1,19 +1,19 @@
 #!/bin/sh
-## EPITECH PROJECT, 2018
-## 
+## EPITECH PROJECT, 2017
+## Clément ROYER - clement.royer@epitech.eu
 ## File description:
-## 
+## a bash trading bot with UI
 ##
 
 
-# 0.0 SOMMAIRE
-#	1.0 Déclerationd de variables globals
-#	2.0 statubar //bar du haut avec date , login et prenom
+# 0.0 SUMMURY
+#	1.0 Variables
+#	2.0 statubar (topbar)
 #	3.0 loginscreen
 
 #	1.0
 #======================================================================================================================================================================================================================================
-#														DÉCLERATION de variables globals
+#														    Variables
 cols=$(tput cols)
 rows=$(tput lines)
 
@@ -73,7 +73,7 @@ Thelogin()
     tmp="LOGIN : "
     txt="N U C L E A R CRYPTO BOT"
     middle=$(( (($rows/2) - 10) ))
-    lenAscii=$(( ((($cols/2) - (${#txt}/2)) - 10) ))
+    lenAscii=$(( ((($cols/2) - (${#txt}/2)) - 65) ))
     tput cup $middle $lenAscii
     echo -e "\e[1;38;5;45m\033#6N U C L E A R CRYPTO BOT\e[0m"
     lenAscii=$((( (($cols/2) - (${#tmp}/2)))))
@@ -850,7 +850,7 @@ bot()
 }
 
 #======================================================================================================================================================================================================================================
-#														CALCULS MOY
+#														CALCULS MEAN
 
 getbtcMA()
 {

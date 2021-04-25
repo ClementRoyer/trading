@@ -264,10 +264,14 @@ placename()
 setbtcvalue()
 {
     box_top="╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮"
-    btcprice=$(httpGet "https://api.coinmarketcap.com/v1/ticker/bitcoin/?convert=eur" | grep -Eo "\"price_eur\": \"[+-]?[0-9 .]*" | sed s/"\"price_eur\": \""//g) > /dev/null
-    change24h=$(httpGet "https://api.coinmarketcap.com/v1/ticker/bitcoin/?convert=eur" | grep -Po "\"percent_change_24h\": \"[+-]?[0-9 .]*" | sed s/"\"percent_change_24h\": \""//g) > /dev/null
-    change1h=$(httpGet "https://api.coinmarketcap.com/v1/ticker/bitcoin/?convert=eur" | grep -Po "\"percent_change_1h\": \"[+-]?[0-9 .]*" | sed s/"\"percent_change_1h\": \""//g) > /dev/null
-    market_cap=$(httpGet "https://api.coinmarketcap.com/v1/ticker/bitcoin/?convert=eur" | grep -Eo "\"market_cap_eur\": \"[+-]?[0-9 .]*" | sed s/"\"market_cap_eur\": \""//g) > /dev/null
+    # btcprice=$(httpGet "https://api.coinmarketcap.com/v1/ticker/bitcoin/?convert=eur" | grep -Eo "\"price_eur\": \"[+-]?[0-9 .]*" | sed s/"\"price_eur\": \""//g) > /dev/null
+    # change24h=$(httpGet "https://api.coinmarketcap.com/v1/ticker/bitcoin/?convert=eur" | grep -Po "\"percent_change_24h\": \"[+-]?[0-9 .]*" | sed s/"\"percent_change_24h\": \""//g) > /dev/null
+    # change1h=$(httpGet "https://api.coinmarketcap.com/v1/ticker/bitcoin/?convert=eur" | grep -Po "\"percent_change_1h\": \"[+-]?[0-9 .]*" | sed s/"\"percent_change_1h\": \""//g) > /dev/null
+    # market_cap=$(httpGet "https://api.coinmarketcap.com/v1/ticker/bitcoin/?convert=eur" | grep -Eo "\"market_cap_eur\": \"[+-]?[0-9 .]*" | sed s/"\"market_cap_eur\": \""//g) > /dev/null
+    btcprice=$(httpGet "https://api.coinbase.com/v2/prices/BTC-EUR/buy" | cut -d\: -f5 | cut -d\" -f2) > /dev/null
+    change24h=$(httpGet "https://api.coinbase.com/v2/prices/BTC-EUR/sell" | cut -d\: -f5 | cut -d\" -f2) > /dev/null
+    change1h=$(httpGet "https://api.coinbase.com/v2/prices/BTC-EUR/buy" | cut -d\: -f5 | cut -d\" -f2) > /dev/null
+    market_cap=$(httpGet "https://api.coinbase.com/v2/prices/BTC-EUR/buy" | cut -d\: -f5 | cut -d\" -f2) > /dev/null
     x=$(( (($cols / 2) - (((${#box_top} / 3) + ((${#box_top}/7)) - 22))  )))
     y=10
     tput cup $y $x
@@ -296,10 +300,14 @@ setbtcvalue()
 setethvalue()
 {
     box_top="┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐"
-    ethprice=$(httpGet "https://api.coinmarketcap.com/v1/ticker/ethereum/?convert=eur" | grep -Eo "\"price_eur\": \"[+-]?[0-9 .]*" | sed s/"\"price_eur\": \""//g) > /dev/null
-    change24h=$(httpGet "https://api.coinmarketcap.com/v1/ticker/ethereum/?convert=eur" | grep -Po "\"percent_change_24h\": \"[+-]?[0-9 .]*" | sed s/"\"percent_change_24h\": \""//g) > /dev/null
-    change1h=$(httpGet "https://api.coinmarketcap.com/v1/ticker/ethereum/?convert=eur" | grep -Po "\"percent_change_1h\": \"[+-]?[0-9 .]*" | sed s/"\"percent_change_1h\": \""//g) > /dev/null
-    market_cap=$(httpGet "https://api.coinmarketcap.com/v1/ticker/ethereum/?convert=eur" | grep -Eo "\"market_cap_eur\": \"[+-]?[0-9 .]*" | sed s/"\"market_cap_eur\": \""//g) > /dev/null
+    # ethprice=$(httpGet "https://api.coinmarketcap.com/v1/ticker/ethereum/?convert=eur" | grep -Eo "\"price_eur\": \"[+-]?[0-9 .]*" | sed s/"\"price_eur\": \""//g) > /dev/null
+    # change24h=$(httpGet "https://api.coinmarketcap.com/v1/ticker/ethereum/?convert=eur" | grep -Po "\"percent_change_24h\": \"[+-]?[0-9 .]*" | sed s/"\"percent_change_24h\": \""//g) > /dev/null
+    # change1h=$(httpGet "https://api.coinmarketcap.com/v1/ticker/ethereum/?convert=eur" | grep -Po "\"percent_change_1h\": \"[+-]?[0-9 .]*" | sed s/"\"percent_change_1h\": \""//g) > /dev/null
+    # market_cap=$(httpGet "https://api.coinmarketcap.com/v1/ticker/ethereum/?convert=eur" | grep -Eo "\"market_cap_eur\": \"[+-]?[0-9 .]*" | sed s/"\"market_cap_eur\": \""//g) > /dev/null
+    ethprice=$(httpGet "https://api.coinbase.com/v2/prices/ETH-EUR/buy" | cut -d\: -f5 | cut -d\" -f2) > /dev/null
+    change24h=$(httpGet "https://api.coinbase.com/v2/prices/ETH-EUR/sell" | cut -d\: -f5 | cut -d\" -f2) > /dev/null
+    change1h=$(httpGet "https://api.coinbase.com/v2/prices/ETH-EUR/buy" | cut -d\: -f5 | cut -d\" -f2) > /dev/null
+    market_cap=$(httpGet "https://api.coinbase.com/v2/prices/ETH-EUR/buy" | cut -d\: -f5 | cut -d\" -f2) > /dev/null
     x=$(( (($cols / 2) - (((${#box_top} / 3) + ((${#box_top}/11)) - 39))  )))
     y=10
     tput cup $y $x
@@ -328,10 +336,14 @@ setethvalue()
 setxrpvalue()
 {
     box_top="┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐"
-    xrpprice=$(httpGet "https://api.coinmarketcap.com/v1/ticker/ripple/?convert=eur" | grep -Eo "\"price_eur\": \"[+-]?[0-9 .]*" | sed s/"\"price_eur\": \""//g) > /dev/null
-    change24h=$(httpGet "https://api.coinmarketcap.com/v1/ticker/ripple/?convert=eur" | grep -Po "\"percent_change_24h\": \"[+-]?[0-9 .]*" | sed s/"\"percent_change_24h\": \""//g) > /dev/null
-    change1h=$(httpGet "https://api.coinmarketcap.com/v1/ticker/ripple/?convert=eur" | grep -Po "\"percent_change_1h\": \"[+-]?[0-9 .]*" | sed s/"\"percent_change_1h\": \""//g) > /dev/null
-    market_cap=$(httpGet "https://api.coinmarketcap.com/v1/ticker/ripple/?convert=eur" | grep -Eo "\"market_cap_eur\": \"[+-]?[0-9 .]*" | sed s/"\"market_cap_eur\": \""//g) > /dev/null
+    # xrpprice=$(httpGet "https://api.coinmarketcap.com/v1/ticker/ripple/?convert=eur" | grep -Eo "\"price_eur\": \"[+-]?[0-9 .]*" | sed s/"\"price_eur\": \""//g) > /dev/null
+    # change24h=$(httpGet "https://api.coinmarketcap.com/v1/ticker/ripple/?convert=eur" | grep -Po "\"percent_change_24h\": \"[+-]?[0-9 .]*" | sed s/"\"percent_change_24h\": \""//g) > /dev/null
+    # change1h=$(httpGet "https://api.coinmarketcap.com/v1/ticker/ripple/?convert=eur" | grep -Po "\"percent_change_1h\": \"[+-]?[0-9 .]*" | sed s/"\"percent_change_1h\": \""//g) > /dev/null
+    # market_cap=$(httpGet "https://api.coinmarketcap.com/v1/ticker/ripple/?convert=eur" | grep -Eo "\"market_cap_eur\": \"[+-]?[0-9 .]*" | sed s/"\"market_cap_eur\": \""//g) > /dev/null
+    xrpprice=$(httpGet "https://api.coinbase.com/v2/prices/XRP-EUR/buy" | cut -d\: -f5 | cut -d\" -f2) > /dev/null
+    change24h=$(httpGet "https://api.coinbase.com/v2/prices/XRP-EUR/sell" | cut -d\: -f5 | cut -d\" -f2) > /dev/null
+    change1h=$(httpGet "https://api.coinbase.com/v2/prices/XRP-EUR/buy" | cut -d\: -f5 | cut -d\" -f2) > /dev/null
+    market_cap=$(httpGet "https://api.coinbase.com/v2/prices/XRP-EUR/buy" | cut -d\: -f5 | cut -d\" -f2) > /dev/null
     x=$(( (($cols / 2) - (((${#box_top} / 3) + ((${#box_top}/11)) - 63))  )))
     y=10
     tput cup $y $x
@@ -360,10 +372,14 @@ setxrpvalue()
 setbchvalue()
 {
     box_top="┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐"
-    bchprice=$(httpGet "https://api.coinmarketcap.com/v1/ticker/bitcoin-cash/?convert=eur" | grep -Eo "\"price_eur\": \"[+-]?[0-9 .]*" | sed s/"\"price_eur\": \""//g) > /dev/null
-    change24h=$(httpGet "https://api.coinmarketcap.com/v1/ticker/bitcoin-cash/?convert=eur" | grep -Po "\"percent_change_24h\": \"[+-]?[0-9 .]*" | sed s/"\"percent_change_24h\": \""//g) > /dev/null
-    change1h=$(httpGet "https://api.coinmarketcap.com/v1/ticker/bitcoin-cash/?convert=eur" | grep -Po "\"percent_change_1h\": \"[+-]?[0-9 .]*" | sed s/"\"percent_change_1h\": \""//g) > /dev/null
-    market_cap=$(httpGet "https://api.coinmarketcap.com/v1/ticker/bitcoin-cash/?convert=eur" | grep -Eo "\"market_cap_eur\": \"[+-]?[0-9 .]*" | sed s/"\"market_cap_eur\": \""//g) > /dev/null
+    # bchprice=$(httpGet "https://api.coinmarketcap.com/v1/ticker/bitcoin-cash/?convert=eur" | grep -Eo "\"price_eur\": \"[+-]?[0-9 .]*" | sed s/"\"price_eur\": \""//g) > /dev/null
+    # change24h=$(httpGet "https://api.coinmarketcap.com/v1/ticker/bitcoin-cash/?convert=eur" | grep -Po "\"percent_change_24h\": \"[+-]?[0-9 .]*" | sed s/"\"percent_change_24h\": \""//g) > /dev/null
+    # change1h=$(httpGet "https://api.coinmarketcap.com/v1/ticker/bitcoin-cash/?convert=eur" | grep -Po "\"percent_change_1h\": \"[+-]?[0-9 .]*" | sed s/"\"percent_change_1h\": \""//g) > /dev/null
+    # market_cap=$(httpGet "https://api.coinmarketcap.com/v1/ticker/bitcoin-cash/?convert=eur" | grep -Eo "\"market_cap_eur\": \"[+-]?[0-9 .]*" | sed s/"\"market_cap_eur\": \""//g) > /dev/null
+    bchprice=$(httpGet "https://api.coinbase.com/v2/prices/BCH-EUR/buy" | cut -d\: -f5 | cut -d\" -f2) > /dev/null
+    change24h=$(httpGet "https://api.coinbase.com/v2/prices/BCH-EUR/sell" | cut -d\: -f5 | cut -d\" -f2) > /dev/null
+    change1h=$(httpGet "https://api.coinbase.com/v2/prices/BCH-EUR/buy" | cut -d\: -f5 | cut -d\" -f2) > /dev/null
+    market_cap=$(httpGet "https://api.coinbase.com/v2/prices/BCH-EUR/buy" | cut -d\: -f5 | cut -d\" -f2) > /dev/null
     x=$(( ( ($cols / 2) - ((${#box_top} / 3) - 74)  ) ))
     y=10
     tput cup $y $x
@@ -392,10 +408,14 @@ setbchvalue()
 setltcvalue()
 {
     box_top="┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐"
-    ltcprice=$(httpGet "https://api.coinmarketcap.com/v1/ticker/litecoin/?convert=eur" | grep -Eo "\"price_eur\": \"[+-]?[0-9 .]*" | sed s/"\"price_eur\": \""//g) > /dev/null
-    change24h=$(httpGet "https://api.coinmarketcap.com/v1/ticker/litecoin/?convert=eur" | grep -Po "\"percent_change_24h\": \"[+-]?[0-9 .]*" | sed s/"\"percent_change_24h\": \""//g) > /dev/null
-    change1h=$(httpGet "https://api.coinmarketcap.com/v1/ticker/litecoin/?convert=eur" | grep -Po "\"percent_change_1h\": \"[+-]?[0-9 .]*" | sed s/"\"percent_change_1h\": \""//g) > /dev/null
-    market_cap=$(httpGet "https://api.coinmarketcap.com/v1/ticker/litecoin/?convert=eur" | grep -Eo "\"market_cap_eur\": \"[+-]?[0-9 .]*" | sed s/"\"market_cap_eur\": \""//g) > /dev/null
+    # ltcprice=$(httpGet "https://api.coinmarketcap.com/v1/ticker/litecoin/?convert=eur" | grep -Eo "\"price_eur\": \"[+-]?[0-9 .]*" | sed s/"\"price_eur\": \""//g) > /dev/null
+    # change24h=$(httpGet "https://api.coinmarketcap.com/v1/ticker/litecoin/?convert=eur" | grep -Po "\"percent_change_24h\": \"[+-]?[0-9 .]*" | sed s/"\"percent_change_24h\": \""//g) > /dev/null
+    # change1h=$(httpGet "https://api.coinmarketcap.com/v1/ticker/litecoin/?convert=eur" | grep -Po "\"percent_change_1h\": \"[+-]?[0-9 .]*" | sed s/"\"percent_change_1h\": \""//g) > /dev/null
+    # market_cap=$(httpGet "https://api.coinmarketcap.com/v1/ticker/litecoin/?convert=eur" | grep -Eo "\"market_cap_eur\": \"[+-]?[0-9 .]*" | sed s/"\"market_cap_eur\": \""//g) > /dev/null
+    ltcprice=$(httpGet "https://api.coinbase.com/v2/prices/LTC-EUR/buy" | cut -d\: -f5 | cut -d\" -f2) > /dev/null
+    change24h=$(httpGet "https://api.coinbase.com/v2/prices/LTC-EUR/sell" | cut -d\: -f5 | cut -d\" -f2) > /dev/null
+    change1h=$(httpGet "https://api.coinbase.com/v2/prices/LTC-EUR/buy" | cut -d\: -f5 | cut -d\" -f2) > /dev/null
+    market_cap=$(httpGet "https://api.coinbase.com/v2/prices/LTC-EUR/buy" | cut -d\: -f5 | cut -d\" -f2) > /dev/null
     x=$(( ( ($cols / 2) - ((${#box_top} / 3) - 98)  ) ))
     y=10
     tput cup $y $x

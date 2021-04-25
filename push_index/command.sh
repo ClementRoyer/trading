@@ -73,7 +73,7 @@ Thelogin()
     tmp="LOGIN : "
     txt="N U C L E A R CRYPTO BOT"
     middle=$(( (($rows/2) - 10) ))
-    lenAscii=$(( ((($cols/2) - (${#txt}/2)) - 10) ))
+    lenAscii=$(( ((($cols/2) - (${#txt}/2)) - 65) ))
     tput cup $middle $lenAscii
     echo -e "\e[1;38;5;45m\033#6N U C L E A R CRYPTO BOT\e[0m"
     lenAscii=$((( (($cols/2) - (${#tmp}/2)))))
